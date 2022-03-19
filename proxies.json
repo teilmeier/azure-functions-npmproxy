@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json.schemastore.org/proxies",
+  "proxies": {
+    "searchApi": {
+      "matchCondition": {
+        "methods": [
+          "GET"
+        ],
+        "route": "/npm/{organization}/{project}/{feedId}/registry/-/v1/search"
+      },
+      "backendUri": "https://localhost/api/{organization}/{project}/{feedId}/search"
+    },
+    "allApi": {
+      "matchCondition": {
+        "methods": [
+          "GET"
+        ],
+        "route": "/npm/{organization}/{project}/{feedId}/registry/-/all"
+      },
+      "backendUri": "https://localhost/api/{organization}/{project}/{feedId}/search"
+    },
+    "root": {
+      "matchCondition": {
+        "methods": [
+          "GET",
+          "POST",
+          "PUT",
+          "DELETE",
+          "PATCH"
+        ],
+        "route": "/npm/{organization}/{project}/{feedId}/{*restOfPath}"
+      },
+      "backendUri": "https://pkgs.dev.azure.com/{organization}/{project}/_packaging/{feedId}/npm/{restOfPath}"
+    }
+  }
+}
