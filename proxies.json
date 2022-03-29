@@ -19,14 +19,17 @@
       },
       "backendUri": "https://localhost/api/{organization}/{project}/{feedId}/search"
     },
-    "root": {
+    "azureDevOpsProxy": {
       "matchCondition": {
         "methods": [
           "GET",
           "POST",
-          "PUT",
           "DELETE",
-          "PATCH"
+          "HEAD",
+          "PATCH",
+          "PUT",
+          "OPTIONS",
+          "TRACE"
         ],
         "route": "/npm/{organization}/{project}/{feedId}/{*restOfPath}"
       },
